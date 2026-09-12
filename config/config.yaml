@@ -1,0 +1,68 @@
+# Capping Machine Telemetry - configuration
+# No paths are hard-coded in source; everything reads from here.
+
+data:
+  pools_dir: "data/pools"          # directory containing dataset pools (csv/json/parquet)
+  default_pool: "sample_pool"
+
+heads:
+  # Schema: a 36-station capping/closing line, H01..H36.
+  # Change this list (and generate matching data) to model a smaller or larger line.
+  ids:
+    - "H01"
+    - "H02"
+    - "H03"
+    - "H04"
+    - "H05"
+    - "H06"
+    - "H07"
+    - "H08"
+    - "H09"
+    - "H10"
+    - "H11"
+    - "H12"
+    - "H13"
+    - "H14"
+    - "H15"
+    - "H16"
+    - "H17"
+    - "H18"
+    - "H19"
+    - "H20"
+    - "H21"
+    - "H22"
+    - "H23"
+    - "H24"
+    - "H25"
+    - "H26"
+    - "H27"
+    - "H28"
+    - "H29"
+    - "H30"
+    - "H31"
+    - "H32"
+    - "H33"
+    - "H34"
+    - "H35"
+    - "H36"
+
+schema:
+  timestamp_col: "timestamp"
+  # Wide-format column suffixes, e.g. "H01 AppTorque", "H01 Status", "H01 Count"
+  torque_suffix: " AppTorque"
+  status_suffix: " Status"
+  count_suffix: " Count"
+  # Status-code meanings (success / no-load / reject / fault) come from:
+  #   config/status_codes.json                       (human-readable reference)
+  #   src/capping_telemetry/ingestion/status_codes.py  (what the code runs on)
+
+analytics:
+  torque_expected_range_nm: [1.5, 3.5]   # used by anomaly detection; tune per real dataset
+  moving_average_window: 50               # in number of closure events
+  drift_zscore_threshold: 3.0
+  idle_no_load_seconds: 120                # sustained "No Load" duration to flag idle
+  correlation_min_events: 30
+
+logging:
+  level: "INFO"
+  log_dir: "logs"

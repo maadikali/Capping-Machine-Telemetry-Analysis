@@ -1,0 +1,69 @@
+{
+  "closure_statuses": [
+    {
+      "closure_status": 0,
+      "reject_signal": "NO",
+      "error_description": "Closure OK"
+    },
+    {
+      "closure_status": 2,
+      "reject_signal": "NO",
+      "error_description": "No Load"
+    },
+    {
+      "closure_status": 3,
+      "reject_signal": "YES",
+      "error_description": "Failing to reach the first torque threshold (SlowTorque)"
+    },
+    {
+      "closure_status": 4,
+      "reject_signal": "NO",
+      "error_description": "No Closure"
+    },
+    {
+      "closure_status": 5,
+      "reject_signal": "YES",
+      "error_description": "Failing to reach the final torque (ClosureTorque)"
+    },
+    {
+      "closure_status": 8,
+      "reject_signal": "NO",
+      "error_description": "No InTorque"
+    },
+    {
+      "closure_status": 9,
+      "reject_signal": "YES",
+      "error_description": "Closure Head raises before the TimeInTorque time was elapsed"
+    },
+    {
+      "closure_status": 16,
+      "reject_signal": "NO",
+      "error_description": "No CapTurns"
+    },
+    {
+      "closure_status": 17,
+      "reject_signal": "YES",
+      "error_description": "The cap is closed but with less degrees than CapTurns"
+    },
+    {
+      "closure_status": 32,
+      "reject_signal": "NO",
+      "error_description": "Following Error"
+    },
+    {
+      "closure_status": 33,
+      "reject_signal": "YES",
+      "error_description": "Tracking error between the real position and the controlled position of the head"
+    },
+    {
+      "closure_status": 64,
+      "reject_signal": "NO",
+      "error_description": "Bad Closure"
+    },
+    {
+      "closure_status": 65,
+      "reject_signal": "YES",
+      "error_description": "ClosureTorque reached but cap is still rotating when head raises"
+    }
+  ]
+}
